@@ -15,8 +15,8 @@ saveBtn.addEventListener("click", () => {
     const value = parseFloat(speedInput.value);
     if (!isNaN(value)) {
         browser.storage.local.set({ playbackSpeed: value }).then(() => {
-            status.textContent = "Saved!";
-            setTimeout(() => (status.textContent = ""), 1500);
+            statusMsg.textContent = "Saved!";
+            setTimeout(() => (statusMsg.textContent = ""), 1500);
         });
     }
 });
