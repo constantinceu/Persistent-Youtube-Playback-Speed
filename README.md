@@ -1,15 +1,26 @@
 # Persistent-Youtube-Playback-Speed
 Firefox Extension that supplies a Persistent Youtube Playback Speed that never changes on its own.
 
-Installation:
-  1. Zip the contents of this folder (contents must include manifest.json at the root).
-  2. In Firefox, open about:debugging#/runtime/this-firefox and choose "Load Temporary Add-on..." and pick the manifest.json inside the zip (or unzip and pick manifest.json).
-  3. Alternatively sign and distribute the add-on if you want persistent install.
+### Firefox Permanent Installation
 
-Editing default speed via file:
-  - Edit settings.json before zipping/installing to change the packaged default speed.
+1. Download or clone this repository
+2. Install the Firefox Developer edition: https://www.firefox.com/en-GB/channel/desktop/?redirect_source=mozilla-org
+3. Open about:config in Firefox and set xpinstall.signatures.required to false
+4. Compress: background.js, contentScript.js, manifest.json, options.html, options.js into a single .zip File
+5. Open about:addons in Firefox and drag the .zip Folder in the Window.
+6. Give necessary Permissions and you are good to go.
+
+#### Firefox Temporary Installation (recommended)
+
+1. Download or clone this repository  
+2. Open Firefox and navigate to:  
+   `about:debugging#/runtime/this-firefox`
+3. Click **Load Temporary Add-on**  
+4. Select any file inside the extension directory (e.g., `manifest.json`)  
+5. The extension will load and work until Firefox is closed
+
+Editing default speed:
   - After installation, use Options page (right-click the extension → Manage Extension → Options) to change the stored speed (applies immediately).
 
 Notes:
   - The Options page writes the value to browser.storage.local and this value is used every time a YouTube video runs.
-  - Because extension package files are read-only once installed, editing settings.json after installation will have no effect. Use the Options page to change the speed live.

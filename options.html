@@ -1,58 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>YouTube Speed Enforcer — Options</title>
-    <style>
-        body {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-            margin: 20px;
-            line-height: 1.5;
-            color: #111
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600
-        }
-
-        input[type="number"] {
-            width: 120px;
-            padding: 6px;
-            margin-right: 8px
-        }
-
-        button {
-            padding: 6px 10px
-        }
-
-        .note {
-            margin-top: 12px;
-            color: #555;
-            font-size: 0.95em
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>YouTube Speed Options</title>
 </head>
 
 <body>
-    <h1>YouTube Speed Enforcer</h1>
-    <div>
-        <label for="speedInput">Playback speed (e.g. 1.0, 1.25, 2.0)</label>
-        <input id="speedInput" type="number" step="0.05" min="0.1" max="16" />
-        <button id="saveBtn">Save</button>
-        <button id="clearBtn">Clear stored speed</button>
-    </div>
+    <h2>Persistent-Youtube-Playback-Speed Settings</h2>
+    <label>
+        Playback Speed:
+        <input type="number" id="speedInput" step="0.1" min="0.1" max="16">
+    </label>
+    <button id="saveBtn">Save</button>
+    <p id="status"></p>
 
-    <div style="margin-top:12px">
-        <strong>Effective speed:</strong> <span id="effectiveSpeed">–</span>
-    </div>
-
-    <div class="note">
-        The stored speed is applied every time you open a YouTube video. You can also edit <code>settings.json</code>
-        before installing the extension to choose a different default.
-    </div>
 
     <script src="options.js"></script>
 </body>
