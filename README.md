@@ -3,7 +3,8 @@ Firefox Extension that supplies a Persistent Youtube Playback Speed that never c
 
 ### Firefox Installation
 
-Install the Release File
+Install the Release File,
+or [here](https://addons.mozilla.org/en-GB/firefox/addon/persistent-youtube-pb-speed/) via the Firefox extension store.
 
 Editing default speed:
   - After installation, use Options page (right-click the extension → Manage Extension → Options) to change the stored speed (applies immediately).
