@@ -1,27 +1,29 @@
-function applySpeed(speed) {
-    const video = document.querySelector("video");
-    if (video) {
-        video.playbackRate = speed;
-    }
+// Load saved speed from storage on each page
+function applySpeedToAllVideos() {
+    browser.storage.local.get("playbackSpeed").then(data => {
+        const speed = data.playbackSpeed;
+
+        if (speed === undefined) return;
+
+        const videos = document.querySelectorAll("video");
+        videos.forEach(v => {
+            if (v.playbackRate !== speed) {
+                v.playbackRate = speed;
+            }
+        });
+    });
 }
 
-
-// Observe dynamic page changes (YouTube navigation)
+// Observe dynamically added videos (important for Twitter/X)
 const observer = new MutationObserver(() => {
-    browser.storage.local.get("playbackSpeed").then(data => {
-        if (data.playbackSpeed !== undefined) {
-            applySpeed(data.playbackSpeed);
-        }
-    });
+    applySpeedToAllVideos();
 });
 
-
-observer.observe(document.body, { childList: true, subtree: true });
-
-
-// Apply instantly on load
-browser.storage.local.get("playbackSpeed").then(data => {
-    if (data.playbackSpeed !== undefined) {
-        applySpeed(data.playbackSpeed);
-    }
+// Start observing the whole page
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
 });
+
+// Run immediately once
+applySpeedToAllVideos();
